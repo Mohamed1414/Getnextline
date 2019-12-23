@@ -6,7 +6,7 @@
 /*   By: mbahstou <mbahstou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 18:51:19 by mbahstou          #+#    #+#             */
-/*   Updated: 2019/12/19 17:05:41 by mbahstou         ###   ########.fr       */
+/*   Updated: 2019/12/23 18:46:45 by mbahstou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char    *ft_strdup(const char *s1)
 {
-        char    *ptr;
-        int             i;
+        char	*ptr;
+        int		i;
 
         i = 0;
         while (s1[i])
@@ -111,4 +111,18 @@ size_t          ft_strlen(const char *s)
         while (s[i])
                 i++;
         return (i);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	unsigned int	i;
+	unsigned char	*a;
+
+	i = 0;
+	a = s;
+	while (i < n && a[i])
+	{
+		a[i] = '\0';
+		i++;
+	}
 }
