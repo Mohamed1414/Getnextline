@@ -6,7 +6,7 @@
 /*   By: mbahstou <mbahstou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 12:14:16 by mbahstou          #+#    #+#             */
-/*   Updated: 2019/12/23 19:00:09 by mbahstou         ###   ########.fr       */
+/*   Updated: 2019/12/24 18:52:32 by mbahstou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		get_next_line(int fd, char **line)
 				i++;
 			*line = ft_substr(p[fd], 0, i); // copia en line hasta el salto de linea.
 			//ft_bzero(p[fd], i + 1); // elimina el contenido de p[fd] hasta el salto de linea, este incluido.
-			p[fd] = ft_remove(p[fd], i);
+			p[fd] = ft_remove(p[fd], i); // crea una nueva cadena que empieza en la siguiente posicion al salto de linea encontrado.
 			return (1);
 		}
 	}
@@ -59,13 +59,9 @@ int main()
 	int fd;
 	char *line;
 	
-	fd = open("hola.txt", O_RDONLY);
-	get_next_line(fd, &line); // le pasas la dirección de line.
-	printf("%s\n", line);
-	get_next_line(fd, &line);
-	printf("%s\n", line);
-	get_next_line(fd, &line);
-	printf("%s\n", line);
+	fd = open("piramide.txt", O_RDONLY);
+	while (get_next_line(fd, &line) != 0) // le pasas la dirección de line.
+		printf("%s\n", line);
 	close (fd);
 	return (0);
 }
