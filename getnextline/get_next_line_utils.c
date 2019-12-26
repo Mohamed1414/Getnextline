@@ -6,7 +6,7 @@
 /*   By: mbahstou <mbahstou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 18:51:19 by mbahstou          #+#    #+#             */
-/*   Updated: 2019/12/23 18:46:45 by mbahstou         ###   ########.fr       */
+/*   Updated: 2019/12/26 16:36:13 by mbahstou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char    *ft_strchr(const char *s, int c)
         return (0);
 }
 
-char    *ft_substr(char const *s, unsigned int start, size_t len)
+char    *ft_substr(char *s, unsigned int start, size_t len)
 {
         unsigned int    i;
         char                    *p;
@@ -77,7 +77,7 @@ char    *ft_substr(char const *s, unsigned int start, size_t len)
         return (p);
 }
 
-char    *ft_strjoin(char const *s1, char const *s2)
+char    *ft_strjoin(char *s1, char const *s2)
 {
         int             i;
         int             j;
@@ -100,6 +100,7 @@ char    *ft_strjoin(char const *s1, char const *s2)
                 j++;
         }
         p[i] = '\0';
+		free(s1);
         return (p);
 }
 
